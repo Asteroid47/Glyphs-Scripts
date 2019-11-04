@@ -14,5 +14,5 @@ Creates a designspace document for use with interpolatable .ttfs and the varLib 
 
 ### Issues
 
-* ** Creates an empty file, designspace file doesn't exist. FIX: Run the script again.
+*  Creates an empty file, designspace file doesn't exist. FIX: Run the script again.
 
