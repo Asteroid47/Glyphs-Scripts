@@ -76,7 +76,7 @@ filePath = font.filepath
 split = filePath.split("/")
 leng = len(split[-1])
 filePath = filePath[:-leng]
-myfile = open(filePath+"1.xml", "w+")
+myfile = open(filePath+familyName+".designspace", "w+")
 mydata = prettify(designSpace)
 
 myfile.write(mydata)
