@@ -22,3 +22,6 @@ $ fonttools varLib path/to/designspace
 
 *  Creates an empty file, designspace file doesn't exist. FIX: Run the script again.
 
+
+# Contact
+Drop me an e-mail theo@tderewnicki.co.uk
