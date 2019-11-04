@@ -24,4 +24,4 @@ $ fonttools varLib path/to/designspace
 
 
 # Contact
-Drop me an e-mail theo@tderewnicki.co.uk
+Drop me an e-mail: theo@tderewnicki.co.uk
