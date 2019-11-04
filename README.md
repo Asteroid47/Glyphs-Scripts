@@ -20,7 +20,7 @@ $ fonttools varLib path/to/designspace
 
 #### Issues
 
-*  Creates an empty file, designspace file doesn't exist. FIX: Run the script again.
+*  Creates an empty file if designspace file doesn't exist. FIX: Run the script again.
 
 
 # Contact
