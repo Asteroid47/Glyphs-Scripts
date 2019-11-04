@@ -12,6 +12,10 @@ Python scripts for use with Glyphs.
 
 Creates a designspace document for use with interpolatable .ttfs and the varLib (fonttools) compiler.
 
+```bash
+$ fonttools varlib path/to/designspace
+```
+
 ### Issues
 
 *  Creates an empty file, designspace file doesn't exist. FIX: Run the script again.
