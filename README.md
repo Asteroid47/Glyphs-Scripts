@@ -8,7 +8,9 @@ Python scripts for use with Glyphs.
 
 # Scripts
 
-## Create varLib Designspace document
+## Designspace
+
+### Create varLib Designspace document
 
 Creates a designspace document for use with interpolatable .ttfs and the varLib (fonttools) compiler.
 
@@ -16,7 +18,7 @@ Creates a designspace document for use with interpolatable .ttfs and the varLib 
 $ fonttools varLib path/to/designspace
 ```
 
-### Issues
+#### Issues
 
 *  Creates an empty file, designspace file doesn't exist. FIX: Run the script again.
 
