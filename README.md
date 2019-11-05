@@ -13,7 +13,8 @@ Python scripts for use with Glyphs.
 ### Create varLib Designspace document
 
 Creates a designspace document for use with interpolatable .ttfs and the varLib (fonttools) compiler.
-Requires a customParameter "isDefault" in a master for the default axis vaules to be set.
+
+*Requires a customParameter "isDefault" in a master for the default axis vaules to be set.*
 
 Use:
 ```bash
@@ -21,9 +22,6 @@ $ fonttools varLib path/to/designspace+interpolatableTTFs
 ```
 to compile a Variable TTF.
 
-#### Issues
-
-*  Creates an empty file if designspace file doesn't exist. FIX: Run the script again.
 
 
 # Contact
