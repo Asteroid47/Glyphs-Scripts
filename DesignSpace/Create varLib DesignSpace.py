@@ -1,18 +1,29 @@
 import xml.etree.ElementTree as ET
-
 from xml.dom import minidom
 
-def prettify(elem):
-    """Return a pretty-printed XML string for the Element.
-    """
-    rough_string = ET.tostring(elem, 'utf-8')
-    reparsed = minidom.parseString(rough_string)
+def cleanUp(elem):
+    unparsed = ET.tostring(elem, 'utf-8')
+    reparsed = minidom.parseString(unparsed)
     return reparsed.toprettyxml(indent="  ")
+def minMax(aNo):
+	axisVal = [master.axes[aNo] for master in font.masters]
+	axisMax = str(max(axisVal))
+	axisMin = str(min(axisVal))
+	axis.set('maximum', axisMax)
+	axis.set('minimum', axisMin)
+
+def getDefault():
+	for i, master in enumerate(font.masters):
+		if 'isDefault' in master.customParameters:
+			defaultMaster = i
+			break
+	return defaultMaster
 
 
 
 font = Glyphs.font
 familyName = font.familyName
+defaultMaster = getDefault()
 ver = 4.0 
 designSpace = ET.Element('designspace')
 designSpace.set('name',str(ver))
@@ -24,18 +35,8 @@ for i, axes in enumerate(font.axes):
 	tag = axes['Tag']
 	axis.set('name', name)
 	axis.set('tag', tag)
-	minAx = 9999999999999 
-	maxAx = 0
-	for master in font.masters:
-		aX = master.axes[i]
-		if (aX < minAx):
-			minAx = aX
-		if (aX > maxAx):
-			maxAx = aX
-	defAx = ((maxAx - minAx)/2) + minAx
-	axis.set('default', str(defAx))
-	axis.set('maximum', str(maxAx))
-	axis.set('minimum', str(minAx))
+	minMax(i)
+	axis.set('default', str(font.masters[defaultMaster].axes[i]))
 
 sourcesX =ET.SubElement(designSpace, 'sources')
 for master in font.masters:
@@ -76,7 +77,7 @@ filePath = font.filepath
 split = filePath.split("/")
 leng = len(split[-1])
 filePath = filePath[:-leng]
-myfile = open(filePath+familyName+".designspace", "w+")
-mydata = prettify(designSpace)
+dsFile = open(filePath+familyName+".designspace", "w+")
+data = cleanUp(designSpace)
 
-myfile.write(mydata)
+dsFile.write(data)
