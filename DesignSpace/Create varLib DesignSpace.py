@@ -5,6 +5,7 @@ def cleanUp(elem):
     unparsed = ET.tostring(elem, 'utf-8')
     reparsed = minidom.parseString(unparsed)
     return reparsed.toprettyxml(indent="  ")
+
 def minMax(aNo):
 	axisVal = [master.axes[aNo] for master in font.masters]
 	axisMax = str(max(axisVal))
@@ -13,10 +14,14 @@ def minMax(aNo):
 	axis.set('minimum', axisMin)
 
 def getDefault():
+	defaultMaster = None
 	for i, master in enumerate(font.masters):
 		if 'isDefault' in master.customParameters:
-			defaultMaster = i
+			defaultMaster = master
 			break
+	if defaultMaster == None:
+		defaultMaster = font.masters[0];
+		print("No default master defined! Using first!")
 	return defaultMaster
 
 
@@ -29,18 +34,16 @@ designSpace = ET.Element('designspace')
 designSpace.set('name',str(ver))
 axesX = ET.SubElement(designSpace, 'axes')
 for i, axes in enumerate(font.axes):
-	print (axes)
 	axis = ET.SubElement(axesX, 'axis')
 	name = axes['Name']
 	tag = axes['Tag']
 	axis.set('name', name)
 	axis.set('tag', tag)
 	minMax(i)
-	axis.set('default', str(font.masters[defaultMaster].axes[i]))
+	axis.set('default', str(defaultMaster.axes[i]))
 
 sourcesX =ET.SubElement(designSpace, 'sources')
 for master in font.masters:
-	print (master)
 	source = ET.SubElement(sourcesX, 'source')
 	name = master.name
 	fileName = familyName + "-"+name+".ttf"
@@ -81,3 +84,4 @@ dsFile = open(filePath+familyName+".designspace", "w+")
 data = cleanUp(designSpace)
 
 dsFile.write(data)
+dsFile.close()
