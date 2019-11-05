@@ -1,3 +1,10 @@
+#MenuTitle: Create varLib Designspace 
+# -*- coding: utf-8 -*-
+__doc__="""
+Export a .designspace file for use with varLib
+"""
+
+
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
 
