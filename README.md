@@ -16,11 +16,7 @@ Creates a designspace document for use with interpolatable .ttfs and the varLib 
 
 *Requires a customParameter "isDefault" in a master for the default axis vaules to be set.*
 
-Use:
-```bash
-$ fonttools varLib path/to/designspace+interpolatableTTFs
-```
-to compile a Variable TTF.
+Use `$ fonttools varLib path/to/designspace+interpolatableTTFs` to compile a Variable TTF.
 
 
 
