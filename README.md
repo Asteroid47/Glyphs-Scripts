@@ -17,7 +17,7 @@ Requires a customParameter "isDefault" in a master for the default axis vaules t
 
 Use:
 ```bash
-$ fonttools varLib path/to/designspace
+$ fonttools varLib path/to/designspace+interpolatableTTFs
 ```
 to compile a Variable TTF.
 
