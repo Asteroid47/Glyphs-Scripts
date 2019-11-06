@@ -18,6 +18,11 @@ Creates a designspace document for use with interpolatable .ttfs and the varLib 
 
 Use `$ fonttools varLib path/to/designspace+interpolatableTTFs` to compile a Variable TTF.
 
+## Guides
+
+### Select all guides
+
+Selects all guides, local and global, on active layer.
 
 
 # Contact
