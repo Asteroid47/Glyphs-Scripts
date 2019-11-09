@@ -14,7 +14,5 @@ layer.clearSelection()
 for guide in layer.guides:
 	layer.selection.append(guide)
 
-for master in font.masters:
-	if master.id == layerMasterId:
-		for guide2 in master.guides:
-			layer.selection.append(guide2)
+for guide in layer.master.guides:
+	layer.selection.append(guide)
